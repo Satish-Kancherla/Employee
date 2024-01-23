@@ -18,21 +18,6 @@ const EmployeeData = () => {
 
         setContent({...content,[name]:value});
     }
-
-    // const handleSubmit = async (e) => {
-    //   e.preventDefault();
-    //   try {
-    //       const responce= await axios.post("http://localhost:8081/emp", content);
-    //       console.log(responce)
-    //       setContent({...content,
-    //         employeename: " ",projectname: " ",shifttimings: " ",holidaydate: " ",description:"",managername:""
-    //     })
-    //       } catch (err) {
-    //       console.log("Something Wrong");
-    //       }
-    //     })
-      
-    // }
    
     const handleSubmit =(e)=>{
       e.preventDefault();  
@@ -52,15 +37,6 @@ const EmployeeData = () => {
           <table >
           <thead>
           <tr><td><span >Employee ID</span></td><td>
-         {/*  <select name="employeeid" id="employeeid" value={content.employeeid} onChange={handleInputs}>
-             <option disable="true" hidden>Select Employee ID</option>
-             <option value="hi" disabled ></option>
-              <option value="111">111</option>
-              <option value="222">222</option>
-              <option value="333">333</option>
-              <option value="444">444</option>
-              <option value="hi" disabled ></option> 
-            </select></td></tr>*/}
             <input type="text" name="employeeid"  placeholder="Select Employee ID" id="employeeid" value={content.employeeid} onChange={handleInputs} />
             </td></tr>
 					<tr><td><span >Employee Name</span></td><td>
