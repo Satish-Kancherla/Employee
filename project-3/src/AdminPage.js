@@ -8,7 +8,8 @@ import { NavLink} from 'react-router-dom';
 
 const AdminPage = () => {
     const[data,setData] = useState([]);
-    const[content,setContent]= useState({employeeid:"", employeename:"",projectname: "",shifttimings: "",holidaydate:"",description:"",managername:"",status:""});
+    const[content,setContent]= useState(
+        {id:"", employeename:"",projectname: "",shifttimings: "",holidaydate:"",description:"",managername:"",status:"pending"});
     const [filterdata, setFilterdata]= useState([content]);  
 
    
@@ -37,6 +38,7 @@ const AdminPage = () => {
 
         setContent({...content,[name]:values});
     }
+    
 
     const handleSubmit =(e)=>{
         e.preventDefault(); 
@@ -75,7 +77,7 @@ const AdminPage = () => {
             <table className='adminpage-table'>
                 <thead >
                     <tr>
-                    <th className='heading' name="employeeid">EMPLOYEE ID </th>  
+                    <th className='heading' name="id">ID </th>  
 			        <th className='heading' name="employeename">EMPLOYEE NAME </th>
 			        <th className='heading' name="projectname">PROJECT NAME </th>
 			        <th className='heading' name="shifttimings">SHIFT TIMINGS </th>
@@ -84,6 +86,7 @@ const AdminPage = () => {
 			        <th className='heading' name="managername">MANAGER NAME </th>
                     <th className='heading' name="workingdays">WORKING DAYS </th>
                     <th className='heading' name="status">STATUS </th>
+                    {/* <th className='heading' name="action">Action</th> */}
                     </tr>
                 </thead >
                 <tbody>
@@ -92,7 +95,7 @@ const AdminPage = () => {
                         return (
                             <tr key={id}>
                                 {/* <td className='data' name="id" id="id">{id+1} </td> */}
-                                <td className='data' name="employeeid" value={content.employeeid} onChange={handleInputs}>{user.employeeid}</td> 
+                                <td className='data' name="id" value={content.id} onChange={handleInputs}>{user.id}</td> 
                                 <td className='data' name="employeename" value={content.employeename} onChange={handleInputs}>{user.employeename}</td>
                                 <td className='data' name="projectname" value={content.projectname} onChange={handleInputs}>{user.projectname}</td>
                                 <td className='data' name="shifttimings"  value={content.shifttimings} onChange={handleInputs}>{user.shifttimings}</td>
@@ -100,11 +103,20 @@ const AdminPage = () => {
                                 <td className='data' name="description"  value={content.description} onChange={handleInputs}>{user.description}</td>
                                 <td className='data' name="managername"  value={content.managername} onChange={handleInputs}>{user.managername}</td>
                                 <td className='data' >1</td>
-                                {/* <td className='data'  name="status">{user.status}</td> */}
-                                <td className='data'  name="status"  id="status" value={content.status}  onChange={handleInputs}><select  className='data' name="status"/* onClick={handleStatus} */>
-                                    <option value="Pending">Pending</option>
+                                {/* <td className='data' name="status"  id="status" value={content.status}  onChange={handleInputs}>{user.status}</td> */}
+                                <td className='data'  name="status"  id="status"><NavLink to={`/update/${user.id}`}>
+                                 
+                                    <select  className='data' id="status" name="status" value={user.status}  onChange={handleInputs}>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Aprooved">Aprooved</option>
+                                     </select></NavLink></td>
+                                {/* <td className='data'  name="status">{user.status}</td> 
+                                <td className='data'  name="status"  id="status" value={content.status}  onChange={handleInputs}>
+                                    <p  className='data' name="status" value={content.status}/* onClick={handleStatus} /></p>
+                                     <option value="Pending">Pending</option>
                                     <option value="Aprooved">Aprooved</option>
-                                </select><NavLink to={`/update/${user.id}`}><button /* onClick={handleupdate} */>update</button></NavLink></td>
+                                </select></td> */}
+                                
                             </tr>
                         )
                     })

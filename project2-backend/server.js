@@ -1,4 +1,4 @@
-const express = require ('express');
+const express = require ("express");
 const  mysql = require('mysql');
 const cors = require('cors');
 
@@ -16,9 +16,9 @@ const db = mysql.createConnection({
 })
 
 app.post('/emp',(req,res)=>{
-    const sql="INSERT INTO register(`employeeid`,`employeename`,`projectname`,`shifttimings`,`holidaydate`,`description`,`managername`) Values(?)";
+    const sql="INSERT INTO register(`id`,`employeename`,`projectname`,`shifttimings`,`holidaydate`,`description`,`managername`) Values(?)";
 
-    const values = [req.body.employeeid, req.body.employeename, req.body.projectname, req.body.shifttimings, req.body.holidaydate, req.body.description, req.body.managername]
+    const values = [req.body.id, req.body.employeename, req.body.projectname, req.body.shifttimings, req.body.holidaydate, req.body.description, req.body.managername]
 
     db.query(sql,[ values],(err,data)=>{
         if(err)
