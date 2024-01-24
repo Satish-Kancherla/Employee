@@ -2,14 +2,14 @@ import React from 'react'
 import { useState,useEffect,useRef } from "react";
 import axios from "axios";
 import { useReactToPrint } from "react-to-print";
-import { NavLink} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 
 
 const AdminPage = () => {
     const[data,setData] = useState([]);
     const[content,setContent]= useState(
-        {id:"", employeename:"",projectname: "",shifttimings: "",holidaydate:"",description:"",managername:"",status:"pending"});
+        {id:"", employeename:"",projectname: "",shifttimings: "",holidaydate:"",description:"",managername:"",status:""});
     const [filterdata, setFilterdata]= useState([content]);  
 
    
@@ -40,13 +40,13 @@ const AdminPage = () => {
     }
     
 
-    const handleSubmit =(e)=>{
-        e.preventDefault(); 
-        console.log(content);
-        axios.post('http://localhost:8082/details',content)
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
-    }        
+    // const handleSubmit =(e)=>{
+    //     e.preventDefault(); 
+    //     console.log(content);
+    //     axios.post('http://localhost:8082/details',content)
+    //     .then(res => console.log(res))
+    //     .catch(err => console.log(err));
+    // }        
 
     /* const handlesearch =(e)=>{
         setFilterdata(data.filter(item =>item.employeename.toLowerCase().includes(e.target.value)))
@@ -65,7 +65,7 @@ const AdminPage = () => {
         <div className="btn-1">
         <div className='sort'>
         
-        <NavLink to="/filter"><button className='button'>Filter</button></NavLink>
+        <Link to="/filter"><button className='button'>FILTER</button></Link>
       </div>
       {/* <div className="search">                
                 <input  type="text" name='name'  onChange={handlesearch} placeholder='Search...' />
@@ -77,7 +77,7 @@ const AdminPage = () => {
             <table className='adminpage-table'>
                 <thead >
                     <tr>
-                    <th className='heading' name="id">ID </th>  
+                    {/* <th className='heading' name="id">ID </th>   */}
 			        <th className='heading' name="employeename">EMPLOYEE NAME </th>
 			        <th className='heading' name="projectname">PROJECT NAME </th>
 			        <th className='heading' name="shifttimings">SHIFT TIMINGS </th>
@@ -95,7 +95,7 @@ const AdminPage = () => {
                         return (
                             <tr key={id}>
                                 {/* <td className='data' name="id" id="id">{id+1} </td> */}
-                                <td className='data' name="id" value={content.id} onChange={handleInputs}>{user.id}</td> 
+                                {/* <td className='data' name="id" value={content.id} onChange={handleInputs}>{user.id}</td>  */}
                                 <td className='data' name="employeename" value={content.employeename} onChange={handleInputs}>{user.employeename}</td>
                                 <td className='data' name="projectname" value={content.projectname} onChange={handleInputs}>{user.projectname}</td>
                                 <td className='data' name="shifttimings"  value={content.shifttimings} onChange={handleInputs}>{user.shifttimings}</td>
@@ -104,12 +104,12 @@ const AdminPage = () => {
                                 <td className='data' name="managername"  value={content.managername} onChange={handleInputs}>{user.managername}</td>
                                 <td className='data' >1</td>
                                 {/* <td className='data' name="status"  id="status" value={content.status}  onChange={handleInputs}>{user.status}</td> */}
-                                <td className='data'  name="status"  id="status"><NavLink to={`/update/${user.id}`}>
+                                <td className='data'  /* name="status"  id="status" */><Link to={`/update/${user.id}`}>
                                  
-                                    <select  className='data' id="status" name="status" value={user.status}  onChange={handleInputs}>
+                                    <select  className='data1'  name="status" value={user.status}  onChange={handleInputs}>
                                         <option value="Pending">Pending</option>
                                         <option value="Aprooved">Aprooved</option>
-                                     </select></NavLink></td>
+                                     </select></Link></td>
                                 {/* <td className='data'  name="status">{user.status}</td> 
                                 <td className='data'  name="status"  id="status" value={content.status}  onChange={handleInputs}>
                                     <p  className='data' name="status" value={content.status}/* onClick={handleStatus} /></p>
@@ -126,9 +126,7 @@ const AdminPage = () => {
             
           
         </div>
-        <div className='save'>
-            <button className='save-button' onClick={handleSubmit}>Save</button>
-        </div>
+
     </div>
   )
 }

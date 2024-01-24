@@ -23,7 +23,7 @@ const Jan = () => {
     
     const fetchData = async()=>{
         try{
-            const result = await axios("http://localhost:8082/register");
+            const result = await axios("http://localhost:8082/users");
             setData(result.data);
             setAllData(result.data);
             setFilterdata(result.data);
@@ -43,6 +43,8 @@ const Jan = () => {
         values = e.target.value;
         setData({...data,[name]:values});
     }   
+
+    
 
     const handlesearch =(e)=>{
         setFilterdata(data.filter(item =>item.employeename.toLowerCase().includes(e.target.value)))
@@ -96,7 +98,7 @@ const Jan = () => {
                     <tr>
 			        <th className='heading' name="employeename">EMPLOYEE NAME </th>
 			        <th className='heading' name="projectname">PROJECT NAME </th>
-			        <th className='heading'name="shifttimings">SHIFT TIMINGS </th>
+			        <th className='heading' name="shifttimings">SHIFT TIMINGS </th>
 			        <th className='heading' name="holidaydate">HOLIDAY DATE </th>
 			        <th className='heading' name="description">DESCRIPTION </th>
 			        <th className='heading' name="managername">MANAGER NAME </th>
@@ -105,23 +107,24 @@ const Jan = () => {
                     </tr>
                 </thead >
                 <tbody>
-                    {filterdata.map((user,i) => {
-                        const{employeename,projectname,shifttimings,description,managername,status} =user;
+                    {filterdata.map((user,id) => {
+                        // const{employeename,projectname,shifttimings,description,managername,status} =user;
                         let date= new Date(user['holidaydate']);
                         return (
-                            <tr key={i}>
+                            <tr key={id}>
                                 {/* <td>{i+1} </td> */}
-                                <td className='data' value={user.employeename} onChange={handleInputs}>{employeename}</td>
-                                <td className='data' value={user.projectname} onChange={handleInputs}>{projectname}</td>
-                                <td className='data' value={user.shifttimings} onChange={handleInputs}>{shifttimings}</td>
-                                <td className='data' value={user.holidaydate} onChange={handleInputs}>{date.toLocaleDateString()}{/* {holidaydate} */}</td>
-                                <td className='data' value={user.description} onChange={handleInputs}>{description}</td>
-                                <td className='data' value={user.managername} onChange={handleInputs}>{managername}</td>
-                                <td className='data' >1</td>
-                                <td className='data' value={user.status} onChange={handleInputs}><select  className='data' value={status} /* onClick={handleStatus} */>
+                                <td className='data' name="employeename" value={data.employeename} onChange={handleInputs}>{user.employeename}</td>
+                                <td className='data' name="projectname" value={data.projectname} onChange={handleInputs}>{user.projectname}</td>
+                                <td className='data' name="shifttimings" value={data.shifttimings} onChange={handleInputs}>{user.shifttimings}</td>
+                                <td className='data' name="holidaydate" value={data.holidaydate} onChange={handleInputs}>{date.toLocaleDateString()}{/* {user.holidaydate} */}</td>
+                                <td className='data' name="description" value={data.description} onChange={handleInputs}>{user.description}</td>
+                                <td className='data' name="managername" value={data.managername} onChange={handleInputs}>{user.managername}</td>
+                                <td className='data'  >1</td>
+                                <td className='data' name="status"   ><NavLink to={`/update/${user.id}`}>
+                                    <select  className='data' name="status" value={user.status} onChange={handleInputs} /* onClick={handleStatus} */>
                                     <option value="Pending">Pending</option>
                                     <option value="Aprooved">Aprooved</option>
-                                </select></td>
+                                </select></NavLink></td>
                             </tr>
                         )
                     })

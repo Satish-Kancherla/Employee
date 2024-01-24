@@ -1,12 +1,12 @@
 import React from 'react'
 import { useState,useEffect } from "react";
 import axios from "axios";
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Link,  useParams } from 'react-router-dom';
 
 const Update = () => {
     const {id} = useParams();
     const[user,setUser] = useState({
-         id:"",
+        //  id:"",
         //  employeename:"",
         //  projectname: "",
         //  shifttimings: "",
@@ -16,21 +16,18 @@ const Update = () => {
          status:"",
         });
 
-    const location = useLocation();
-    const navigate = useNavigate();   
-
-    const userId = location.pathname.split("/")[2];
+    
 
     const handleInputs = (e) => {
         setUser((prev)=>({...prev,[ e.target.name]:e.target.value}));
-    }
+    };
 
     useEffect(()=>{
         axios.get("http://localhost:8082/userdetails/"+id)
         // .then(res => console.log(res))
         .then(res =>{
             console.log(res)
-            setUser(res.data[0])
+            setUser(res.data[0]);
         })/* setUser(res.data.status); */
         .catch(err => console.log(err));
     },[]);
@@ -38,20 +35,20 @@ const Update = () => {
     const handleUpdate= async (e) => {
         e.preventDefault();
         try{
-            await axios.post(`http://localhost:8082/users/${userId}`, user);
+            await axios.put(`http://localhost:8082/users/${id}`, user);
             // navigate("/");
         }catch(err){
             console.log(err);
         } 
     };   
 
-    const handleSubmit = async (e)=>{
-        e.preventDefault(); 
-        console.log(user);
-    const res = await axios.post(`http://localhost:8082/details/${id}`,user)
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
-    }  
+    // const handleSubmit =(e)=>{
+    //     e.preventDefault(); 
+    //     console.log(user);
+    //     axios.post(`http://localhost:8082/details/${id}`,user)
+    //     .then(res => console.log(res))
+    //     .catch(err => console.log(err));
+    // }  
 
     // const handleUpdate =(e)=>{
     //     e.preventDefault(); 
@@ -64,11 +61,11 @@ const Update = () => {
 
   return (
     <div className='adminpage' >
-    <h1>Admin Page</h1>
+    <h1>Update Status</h1>
     <hr/> 
     <form>  
-    <div className="adminpage-update" >
-    <table className='adminpage-table'>
+    <div className="updatepage-content" >
+    <table className='updatepage-table'>
         <thead >
             <tr>
             <th className='heading' name="id">ID</th>
@@ -100,13 +97,17 @@ const Update = () => {
                 <option  value="Pending">Pending</option>
                 <option  value="Aprooved">Aprooved</option>
             </select></td>
+            
             </tr>
         </tbody>
     </table>     
+    
     </div>    
     </form>
-    <button onClick={handleUpdate}>Save</button>
-    <button onClick={handleSubmit}><Link to="/">submit</Link></button>
+    {/* <button onClick={handleUpdate}>Save</button> */}
+    <div className='update-btn'>
+    <button onClick={handleUpdate}><Link to="/">submit</Link></button>
+    </div>
     </div>
     
   )

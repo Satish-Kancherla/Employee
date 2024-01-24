@@ -6,7 +6,7 @@ import axios from "axios";
 const EmployeeData = () => {
 
     const[content,setContent] = useState({
-      employeeid: "",  employeename: "",projectname: "",shifttimings: "",holidaydate: "",description:"",managername:""
+     id: "",  employeename: "",projectname: "",shifttimings: "",holidaydate: "",description:"",managername:""
     });
     
     let name,value;
@@ -25,7 +25,7 @@ const EmployeeData = () => {
       .then(res => console.log(res))
       .catch(err => console.log(err));
     
-       setContent({employeeid:"",employeename:"",projectname: "",shifttimings: "",holidaydate:"",description:"",managername:""})
+       setContent({id:"",employeename:"",projectname: "",shifttimings: "",holidaydate:"",description:"",managername:""})
     }
 
   return (
@@ -37,7 +37,7 @@ const EmployeeData = () => {
           <table >
           <thead>
           <tr><td><span >Employee ID</span></td><td>
-            <input type="text" name="employeeid"  placeholder="Select Employee ID" id="employeeid" value={content.employeeid} onChange={handleInputs} />
+            <input type="text" name="id"  placeholder="Select ID" id="id" value={content.id} onChange={handleInputs} />
             </td></tr>
 					<tr><td><span >Employee Name</span></td><td>
             <select name="employeename" id="employeename" value={content.employeename} onChange={handleInputs}>
