@@ -33,6 +33,7 @@ const EmployeeData = () => {
     }
 
   return (
+    <div className='employee'>
     <div className='employeedata'>
         <div className="form-data">
             <h1>Employee Details</h1>
@@ -130,7 +131,7 @@ const EmployeeData = () => {
 				</div>	
                	
 			</div>
-            
+      </div> 
         </div>  
   )
 }

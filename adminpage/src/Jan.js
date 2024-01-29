@@ -28,8 +28,6 @@ const Jan = () => {
             setData(result.data);
             setAllData(result.data);
             setFilterdata(result.data);
-            // console.log(result.data);
-            // console.log(result.data[0].holidaydate);
         } catch (err) {
             console.log("something Wrong");
         }
@@ -39,7 +37,6 @@ const Jan = () => {
     let name,values;
 
     const handleInputs = (e) => {
-        // console.log(e);
         name = e.target.name;
         values = e.target.value;
         setData({...data,[name]:values});
@@ -54,7 +51,6 @@ const Jan = () => {
     const generatePDF= useReactToPrint({
         content: ()=>conponentPDF.current,
         documentTitle:"EmployeeData",
-        // onAfterPrint:()=>alert("Data saved in PDF")
     });
 
     const handleSelect = (date) => {
@@ -81,7 +77,7 @@ const Jan = () => {
     <div className='adminpage1' ref={conponentPDF} style={{width:'100%'}}>
          <h1>Admin Page</h1>
         <hr/>  
-        
+        <div className="btn-1">
         <div className='sort1'>
 
         <div className="search1"> 
@@ -89,9 +85,11 @@ const Jan = () => {
                 <input  type="text" name='name'  onChange={handlesearch} placeholder='Search...' />
                 <button  className="btn1" onClick={generatePDF}>PDF</button>       
         </div>
+        
         <div className='date1'>
             <DateRangePicker ranges={[selectionRange]} onChange={handleSelect}/><button className='date-button1' type='reset' onClick={handlesearch}>submit</button>
             </div>
+      </div>
       </div>
         <div className="adminpage-content1" >
             <table className='adminpage-table1'>

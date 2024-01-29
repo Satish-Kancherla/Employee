@@ -3,7 +3,7 @@ body {
   }
   
   .adminpage1 h1{
-    display: flex;justify-content: center;/* border-bottom: 2px solid black; */
+    display: flex;justify-content: center;
     margin: 10px 0;padding: 10px;color: #071952;font-weight: bolder;
   }
   .adminpage-content1{
@@ -27,9 +27,6 @@ body {
   .update-btn button:hover{
     background-color: #172e7d;
   }
-  /* table {
-   border-collapse:separate;
-  } */
   .adminpage-table1{
     border-spacing:0 15px; border-collapse: collapse;
   }
@@ -37,7 +34,7 @@ body {
     height: 2px;background-color: black;margin-bottom: 20px;border: 1px solid 071952;
   }
   .heading1 {
-    background-color:#071952 /* green */;
+    background-color:#071952 ;
     Color:white; width:100px;border:1px solid black;padding:10px;
   }
   .data1{
@@ -349,7 +346,7 @@ body {
     }
    
     .adminpage-content1{
-      display: flex;justify-content: center;text-align: center;margin: 0 5px;align-items: center;
+      display: flex;justify-content: center;text-align: center;margin: 0 5px;
       margin-left: 20px;
     }
   
