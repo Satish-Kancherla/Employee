@@ -16,7 +16,7 @@ const AdminPage = () => {
 
     useEffect(()=>{
         fetchData();
-    })
+    },[])
    
     const fetchData = async()=>{
         try{
