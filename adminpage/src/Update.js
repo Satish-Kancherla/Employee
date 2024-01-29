@@ -26,7 +26,7 @@ const Update = () => {
     const handleUpdate= async (e) => {
         e.preventDefault();
         try{
-            await axios.put(`http://localhost:8082/users/${id}`, user);
+            await axios.put(`http://13.48.57.155:8082/users/${id}`, user);
             
         }catch(err){
             console.log(err);
