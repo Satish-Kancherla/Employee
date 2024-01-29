@@ -122,7 +122,7 @@ const Jan = () => {
                                 <td className='data1' name="status"   ><NavLink to={`/update/${user.id}`}>
                                     <select  className='data2' name="status" value={user.status} onChange={handleInputs} /* onClick={handleStatus} */>
                                     <option value="Pending">Pending</option>
-                                    <option value="Aprooved">Aprooved</option>
+                                    <option value="Approved">Approved</option>
                                 </select></NavLink></td>
                             </tr>
                         )
