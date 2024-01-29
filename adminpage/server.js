@@ -7,10 +7,10 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-  user            : 'root',
-  host            : 'localhost',
-  password        : '',
-  database        : 'employee'
+  user            : 'admin',
+  host            : 'acq-emp-db.crmeuqwsiwsg.eu-north-1.rds.amazonaws.com',
+  password        : 'accentiqa123',
+  database        : 'acq-emp'
 });
 
 app.get('/',(req,res)=>{
