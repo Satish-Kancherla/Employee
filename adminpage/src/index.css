@@ -1,13 +1,18 @@
 body {
   margin: 0;padding: 0;box-sizing: border-box;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+@media print {
+  @page {
+    size: 270mm 297mm;
+  }
+}
 
 .adminpage h1{
   display: flex;justify-content: center;/* border-bottom: 2px solid black; */
   margin: 10px 0;padding: 10px;color: #071952;font-weight: bolder;
 }
 .adminpage-content{
-  display: flex;justify-content: center;text-align: center;
+  display: flex;justify-content: center;text-align: center;margin: 0 50px;padding: 0 50px;
 }
 .updatepage-content{
   display: flex;justify-content: center;text-align: center;align-items: center;
@@ -86,13 +91,11 @@ body {
 .save-button:active{
   background-color: #172e7d;color: white;
 }
-
-
 .date{
-  display: flex;justify-content: center;margin: 10px;align-items: center;
+  display: flex;justify-content: center;margin: 10px;align-items: center;font-size: 15px;
 }
 .data1{
-  width:100px;border:1px solid black;padding:5px;font-weight: bold;font-size: 15px;
+  width:80px;border:1px solid black;padding:5px;font-weight: bold;font-size: 15px;
 }
 .date-button{
   background-color: white;color: #071952;border: 2px solid #071952;
@@ -119,7 +122,7 @@ body {
     width:100px;border:1px solid black;padding:5px;font-weight: bold;font-size: 14px;
   }
   .data1{
-    width:100px;border:1px solid black;padding:5px;font-weight: bold;font-size: 14px;
+    width:80px;border:1px solid black;padding:5px;font-weight: bold;font-size: 14px;
   }
   .btn-1{
     display: flex;justify-content: space-between;margin: 0 25px;margin-bottom: 10px;
@@ -307,11 +310,9 @@ body {
 @media screen and (max-width:430px) {
   .adminpage h1{
     display: flex;justify-content: center;
-    margin: 10px 10px;color: #071952;font-size: 20px;
+    margin: 10px 100px;color: #071952;font-size: 20px;
   }
-  .adminpage{
-    width: 500px;
-  }
+ 
   .adminpage-content{
     display: flex;justify-content: center;text-align: center;margin: 0 5px;
   }
@@ -395,7 +396,7 @@ body {
     width:50px;border:1px solid black;padding:5px;font-weight: bold;font-size: 6px;
   }
   .btn-1{
-    display: flex;justify-content: space-between;margin: 0 25px;margin-bottom: 10px;
+    display: flex;justify-content: space-between;margin: 0 25px;margin-bottom: 10px;font-size: 6px;
   }
   
   .sort .sort-option{

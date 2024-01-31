@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "^3.12.1",
     "@syncfusion/ej2-react-calendars": "^24.1.44",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -22,6 +23,7 @@
     "react-scripts": "5.0.1",
     "react-to-print": "^2.14.15",
     "rsuite": "^5.51.0",
+    "sweetalert2": "^11.10.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

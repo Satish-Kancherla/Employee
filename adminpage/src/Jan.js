@@ -45,7 +45,7 @@ const Jan = () => {
     
 
     const handlesearch =(e)=>{
-        setFilterdata(data.filter(item =>item.employeename.toLowerCase().includes(e.target.value)))
+        setFilterdata(data.filter(item =>item.employeename.includes(e.target.value)))
     }
 
     const generatePDF= useReactToPrint({
@@ -120,9 +120,9 @@ const Jan = () => {
                                 <td className='data1' name="managername" value={data.managername} onChange={handleInputs}>{user.managername}</td>
                                 <td className='data1'  >1</td>
                                 <td className='data1' name="status"   ><NavLink to={`/update/${user.id}`}>
-                                    <select  className='data2' name="status" value={user.status} onChange={handleInputs} /* onClick={handleStatus} */>
+                                    <select  className='data1' name="status" value={user.status} onChange={handleInputs} /* onClick={handleStatus} */>
                                     <option value="Pending">Pending</option>
-                                    <option value="Approved">Approved</option>
+                                    <option value="Aprooved">Aprooved</option>
                                 </select></NavLink></td>
                             </tr>
                         )

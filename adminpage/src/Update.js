@@ -59,7 +59,7 @@ const Update = () => {
             <td className='data'  name="status"  id="status" >
             <select  className='data' id="status" name="status" value={user.status}  onChange={handleInputs}>
                 <option  value="Pending">Pending</option>
-                <option  value="Approved">Approved</option>
+                <option  value="Aprooved">Aprooved</option>
             </select></td>
             
             </tr>
@@ -69,7 +69,7 @@ const Update = () => {
     </div>    
     </form>
     <div className='update-btn'>
-    <button onClick={handleUpdate}><Link to="/">submit</Link></button>
+    <button onClick={handleUpdate}><Link to="/filter">submit</Link></button>
     </div>
     </div>
     
