@@ -66,8 +66,7 @@ const Employee = () => {
        });
        const[projects,setProjects]=useState({projectname: ""});
        const[disable, setDisable]=useState('typing');
-       
-       
+       const [employee,setEmployee]=useState({employeename:" "});
        const[empname,setEmpname] =useState([]);
        const[shifts,setShifts]=useState([]);
        
@@ -80,6 +79,12 @@ const Employee = () => {
            setContent({...content,[name]:value});
                   
        }
+
+       const handleEmployee =(e)=>{
+        setEmployee(e.target.value)
+        setContent({...content,"employeename":e.target.value})
+       }
+
        const handleProject =(e)=>{
         setProjects(e.target.value);
        setEmpname(project.find(en => en.name === e.target.value).employee);
@@ -101,7 +106,7 @@ const Employee = () => {
     const publicKey = '1ncgCtZIX8ryxescF';
 
     const templateParams = {
-      from_name: 'naga',
+      from_name: 'Admin Page',
       to_name: 'Harika',
 
     };
@@ -141,7 +146,7 @@ const Employee = () => {
                 </select></td></tr>
 
             <tr><td><span >Employee Name</span></td><td>
-               <select name="employeename"  id="employeename" value={content.employeename} onChange={handleInputs} >
+               <select name="employeename"  id="employeename" value={employee} onChange={handleEmployee} >
                <option value="" disable="true"  hidden>Select Employee Name</option>
                {empname.map((emp,index)=>(
                 <option key = {index} value={emp.name}>{emp.name}</option>

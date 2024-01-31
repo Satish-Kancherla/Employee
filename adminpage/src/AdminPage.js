@@ -85,7 +85,7 @@ const AdminPage = () => {
                                  
                                     <select  className='data'  name="status" value={user.status}  onChange={handleInputs}>
                                         <option value="Pending">Pending</option>
-                                        <option value="Aprooved">Aprooved</option>
+                                        <option value="Approved">Approved</option>
                                      </select></Link></td>
                                 
                             </tr>
