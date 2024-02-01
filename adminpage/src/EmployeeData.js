@@ -106,7 +106,7 @@ const Employee = () => {
     const publicKey = '1ncgCtZIX8ryxescF';
 
     const templateParams = {
-      from_name: 'Admin Page',
+      from_name: employee,
       to_name: 'Harika',
 
     };
