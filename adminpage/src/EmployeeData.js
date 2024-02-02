@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 const Employee = () => {
 
     const project =[{
-        name:"Cruch Time",
+        name:"Crunch Time",
         employee:[
             {name:"Nehru Hatkar"},{name:"Prasanth Pullaganti"},{name:"Gunna Pavan Sai"},{name:"Gade Narendra"},{name:"Sanchi Muneendra Kumar"},{name:"Sabreen Banu Shaik"},{name:"Chandan Charchit Sahu"}
             ,{name:"Thumati Narendra Reddy"}
